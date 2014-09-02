@@ -12,7 +12,7 @@ import db.define.MyTableModel;
 
 public class MOObject
 {
-	public Long LogID = 0l;
+	public long LogID = 0l;
 	public String MSISDN = "";
 	public Date LogDate = null;
 
@@ -31,7 +31,7 @@ public class MOObject
 
 	public String UserName = "";
 	public String IP = "";
-	public Integer PartnerID = 0;
+	public int PartnerID = 0;
 
 	public boolean IsNull()
 	{
@@ -40,8 +40,8 @@ public class MOObject
 	}
 
 	public MOObject(String MSISDN, ChannelType mChannelType, MTType mMTType, String MO, String MT, String RequestID,
-			Integer PID, Date ReceiveDate, Date SendDate, VNPApplication mVNPApp, String UserName, String IP,
-			Integer PartnerID)
+			int PID, Date ReceiveDate, Date SendDate, VNPApplication mVNPApp, String UserName, String IP,
+			int PartnerID)
 	{
 		this.MSISDN = MSISDN;
 		this.LogDate = Calendar.getInstance().getTime();

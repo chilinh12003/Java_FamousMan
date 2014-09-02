@@ -18,7 +18,7 @@ public class News
 		 */
 		Waiting(4);
 
-		private Integer value;
+		private int value;
 
 		private Status(int value)
 		{
@@ -30,7 +30,7 @@ public class News
 			return this.value;
 		}
 
-		public static Status FromInt(Integer iValue)
+		public static Status FromInt(int iValue)
 		{
 			for (Status type : Status.values())
 			{

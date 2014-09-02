@@ -8,9 +8,9 @@ import db.define.MyTableModel;
 
 public class QuestionObject
 {
-	public Integer QuestionID = 0;
+	public int QuestionID = 0;
 	public String QuestionName = "";
-	public Integer StatusID = 0;
+	public int StatusID = 0;
 	public String StatusName = "";
 	public Date CreateDate = null;
 	public String RightAnswer = "";

@@ -12,17 +12,17 @@ import db.define.MyTableModel;
 
 public class PlayObject implements Cloneable
 {
-	public Integer LogID = 0;
+	public long LogID = 0;
 	public String MSISDN = "";
-	public Integer QuestionID = 0;
-	public Integer SuggestID = 0;
+	public int QuestionID = 0;
+	public int SuggestID = 0;
 	public Date ReceiveDate = null;
 
 	public PlayType mPlayType = PlayType.Nothing;
-	public Integer OrderNumber = 0;
+	public int OrderNumber = 0;
 	public String UserAnswer = "";
 	public Play.Status mStatus = Status.Nothing;
-	public Integer PID = 0;
+	public int PID = 0;
 
 	public boolean IsNull()
 	{

@@ -66,12 +66,12 @@ public class Play
 			this.value = value;
 		}
 
-		public Integer GetValue()
+		public int GetValue()
 		{
 			return this.value;
 		}
 
-		public static Status FromInt(Integer iValue)
+		public static Status FromInt(int iValue)
 		{
 			for (Status type : Status.values())
 			{

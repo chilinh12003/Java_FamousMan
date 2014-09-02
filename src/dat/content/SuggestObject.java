@@ -9,10 +9,10 @@ import db.define.MyTableModel;
 
 public class SuggestObject
 {
-	public Integer SuggestID = 0;
-	public Integer QuestionID =0;
+	public int SuggestID = 0;
+	public int QuestionID =0;
 	public String MT="";
-	public Integer OrderNumber = 0;
+	public int OrderNumber = 0;
 	public String NotifyMT="";
 	public boolean IsActive = false;
 	public Date CreateDate= null;

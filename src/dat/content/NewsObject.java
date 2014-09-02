@@ -16,7 +16,7 @@ public class NewsObject implements java.io.Serializable
 	 */
 	private static final long serialVersionUID = 1L;
 
-	public Integer NewsID = 0;
+	public int NewsID = 0;
 	public String NewsName = "";
 	/**
 	 * Nội dung của bản tin
@@ -33,9 +33,9 @@ public class NewsObject implements java.io.Serializable
 
 	public Date CreateDate = Calendar.getInstance().getTime();
 	
-	public Integer QuestionID = 0;
+	public int QuestionID = 0;
 
-	public Integer Priority = 0;
+	public int Priority = 0;
 	public boolean IsNull()
 	{
 		if (MT == "") return true;

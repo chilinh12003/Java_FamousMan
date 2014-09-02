@@ -70,20 +70,20 @@ public class SubscriberObject
 	public Date RenewChargeDate = null;
 	public Date RetryChargeDate = null;
 
-	public Integer RetryChargeCount = 0;
+	public int RetryChargeCount = 0;
 
 	public ChannelType mChannelType = ChannelType.NOTHING;
 
 	public Subscriber.Status mStatus = Status.NoThing;
 
-	public Integer PID = 0;
+	public int PID = 0;
 
-	public Integer LastSuggestrID = 0;
-	public Integer SuggestByDay = 0;
-	public Integer TotalSuggest = 0;
+	public int LastSuggestrID = 0;
+	public int SuggestByDay = 0;
+	public int TotalSuggest = 0;
 	public Date LastSuggestDate = null;
 
-	public Integer AnswerForSuggestID = 0;
+	public int AnswerForSuggestID = 0;
 	public Play.Status mLastAnswerStatus = Play.Status.Nothing;
 	public Integer AnswerByDay = 0;
 	public String LastAnswer = "";
@@ -95,7 +95,7 @@ public class SubscriberObject
 	public VNPApplication mVNPApp = VNPApplication.NoThing;
 	public String UserName = "";
 	public String IP = "";
-	public Integer PartnerID = 0;
+	public int PartnerID = 0;
 
 	public Date DeregDate = null;
 

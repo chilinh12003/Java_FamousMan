@@ -63,7 +63,7 @@ public class Subscriber
 			this.value = value;
 		}
 
-		public Integer GetValue()
+		public int GetValue()
 		{
 			return this.value;
 		}
