@@ -31,6 +31,7 @@ public class SuggestCount
 	 * @param Type
 	 * <p>Type = 1: Lấy chi tiết 1 Record (Para_1 = SuggestID) </p>
 	 * <p>Type = 2: Lấy theo QuestionID (Para_1 = QuestionID) </p>
+	 * <p>Type = 5: Lất tất cả dữ liệu theo PlayDate (Para_1 = PlayDate)</p>
 	 * @param Para_1
 	 * @return
 	 * @throws Exception

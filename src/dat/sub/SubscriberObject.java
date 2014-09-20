@@ -380,6 +380,7 @@ public class SubscriberObject
 
 		if (DeregDate != null)
 			mRow.SetValueCell("DeregDate", MyConfig.Get_DateFormat_InsertDB().format(DeregDate.getTime()));
+		
 		mRow.SetValueCell("PartnerID", PartnerID);
 		mRow.SetValueCell("AppID", mVNPApp.GetValue());
 		mRow.SetValueCell("AppName", mVNPApp.toString());

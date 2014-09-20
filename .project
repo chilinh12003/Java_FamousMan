@@ -3,6 +3,7 @@
 	<name>FamousMan</name>
 	<comment></comment>
 	<projects>
+		<project>MyLibrary</project>
 	</projects>
 	<buildSpec>
 		<buildCommand>

@@ -112,4 +112,12 @@ public class QuestionObject
 			throw ex;
 		}
 	}
+
+	public String GetLog() throws Exception
+	{
+		String Format = "QuestionID:%s | QuestionName:%s | StatusID:%s | StatusName:%s | CreateDate%s | RightAnswer:%s | PlayDate:%s | Prize:%s | Price:%s";
+		return String.format(Format, QuestionID, QuestionName, StatusID, StatusName, 
+				MyConfig.Get_DateFormat_InsertDB().format(CreateDate), RightAnswer, 
+				MyConfig.Get_DateFormat_InsertDB().format(PlayDate), Prize, Price);
+	}
 }

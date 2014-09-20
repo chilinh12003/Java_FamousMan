@@ -26,16 +26,16 @@ public class PlayObject implements Cloneable
 
 	public boolean IsNull()
 	{
-		if (MSISDN == null || MSISDN.equalsIgnoreCase("")) return true;
+		if (MSISDN == null || MSISDN.equalsIgnoreCase(""))
+			return true;
 		else return false;
 	}
-	
+
 	public Object clone() throws CloneNotSupportedException
 	{
 		return super.clone();
 	}
 
-	
 	/**
 	 * Kiểm tra ReceiveDate có phải là ngày hôm này hay không
 	 * 
@@ -44,14 +44,16 @@ public class PlayObject implements Cloneable
 	 */
 	public boolean ReceiveIsToday() throws Exception
 	{
-		if (ReceiveDate == null) return false;
+		if (ReceiveDate == null)
+			return false;
 		Calendar mCal_Current = Calendar.getInstance();
 		Calendar mCal_LastUpdate = Calendar.getInstance();
 
 		mCal_LastUpdate.setTime(ReceiveDate);
 		if (mCal_Current.get(Calendar.YEAR) == mCal_LastUpdate.get(Calendar.YEAR)
 				&& mCal_Current.get(Calendar.MONTH) == mCal_LastUpdate.get(Calendar.MONTH)
-				&& mCal_Current.get(Calendar.DATE) == mCal_LastUpdate.get(Calendar.DATE)) return true;
+				&& mCal_Current.get(Calendar.DATE) == mCal_LastUpdate.get(Calendar.DATE))
+			return true;
 		else return false;
 	}
 
@@ -59,7 +61,8 @@ public class PlayObject implements Cloneable
 	{
 		try
 		{
-			if (mTable.GetRowCount() < 1) return new PlayObject();
+			if (mTable.GetRowCount() < 1)
+				return new PlayObject();
 
 			PlayObject mObject = new PlayObject();
 
@@ -74,7 +77,7 @@ public class PlayObject implements Cloneable
 				mObject.ReceiveDate = MyConfig.Get_DateFormat_InsertDB().parse(
 						mTable.GetValueAt(0, "ReceiveDate").toString());
 
-			mObject.mPlayType =PlayType.FromInt(Integer.parseInt(mTable.GetValueAt(0, "PlayTypeID").toString()));
+			mObject.mPlayType = PlayType.FromInt(Integer.parseInt(mTable.GetValueAt(0, "PlayTypeID").toString()));
 
 			mObject.OrderNumber = Integer.parseInt(mTable.GetValueAt(0, "OrderNumber").toString());
 
@@ -83,6 +86,7 @@ public class PlayObject implements Cloneable
 
 			mObject.mStatus = Play.Status.FromInt(Integer.parseInt(mTable.GetValueAt(0, "StatusID").toString()));
 
+			mObject.PID = Integer.parseInt(mTable.GetValueAt(0, "PID").toString());
 			return mObject;
 		}
 		catch (Exception ex)
@@ -96,7 +100,8 @@ public class PlayObject implements Cloneable
 		try
 		{
 			Vector<PlayObject> mList = new Vector<PlayObject>();
-			if (mTable.GetRowCount() < 1) return mList;
+			if (mTable.GetRowCount() < 1)
+				return mList;
 
 			for (int i = 0; i < mTable.GetRowCount(); i++)
 			{
@@ -113,14 +118,14 @@ public class PlayObject implements Cloneable
 					mObject.ReceiveDate = MyConfig.Get_DateFormat_InsertDB().parse(
 							mTable.GetValueAt(i, "ReceiveDate").toString());
 
-				mObject.mPlayType =PlayType.FromInt(Integer.parseInt(mTable.GetValueAt(i, "PlayTypeID").toString()));
+				mObject.mPlayType = PlayType.FromInt(Integer.parseInt(mTable.GetValueAt(i, "PlayTypeID").toString()));
 
 				mObject.OrderNumber = Integer.parseInt(mTable.GetValueAt(i, "OrderNumber").toString());
 
 				if (mTable.GetValueAt(i, "UserAnswer") != null)
 					mObject.UserAnswer = mTable.GetValueAt(i, "UserAnswer").toString();
 
-				mObject.mStatus =Play.Status.FromInt(Integer.parseInt(mTable.GetValueAt(i, "StatusID").toString()));
+				mObject.mStatus = Play.Status.FromInt(Integer.parseInt(mTable.GetValueAt(i, "StatusID").toString()));
 
 				mList.add(mObject);
 
@@ -135,12 +140,14 @@ public class PlayObject implements Cloneable
 
 	public MyTableModel AddNewRow(MyTableModel mTable) throws Exception
 	{
-		if (mTable == null) return null;
+		if (mTable == null)
+			return null;
 
-		if (IsNull()) return mTable;
+		if (IsNull())
+			return mTable;
 
 		MyDataRow mRow = mTable.CreateNewRow();
-		
+
 		mRow.SetValueCell("MSISDN", MSISDN);
 		mRow.SetValueCell("QuestionID", QuestionID);
 		mRow.SetValueCell("SuggestID", SuggestID);
@@ -148,7 +155,8 @@ public class PlayObject implements Cloneable
 		if (ReceiveDate != null)
 			mRow.SetValueCell("ReceiveDate", MyConfig.Get_DateFormat_InsertDB().format(ReceiveDate.getTime()));
 		mRow.SetValueCell("OrderNumber", OrderNumber);
-		if (UserAnswer != null & !UserAnswer.equalsIgnoreCase("")) mRow.SetValueCell("UserAnswer", UserAnswer);
+		if (UserAnswer != null & !UserAnswer.equalsIgnoreCase(""))
+			mRow.SetValueCell("UserAnswer", UserAnswer);
 		mRow.SetValueCell("StatusID", mStatus.GetValue());
 		mRow.SetValueCell("PID", PID);
 
@@ -156,4 +164,12 @@ public class PlayObject implements Cloneable
 		return mTable;
 	}
 
+	public String GetLog() throws Exception
+	{
+
+		String Format = "LogID:%s | MSISDN:%s | QuestionID:%s | SuggestID:%s | ReceiveDate%s | PlayType:%s | OrderNumber:%s | UserAnswer:%s | Status:%s | PID:%s";
+		return String.format(Format, Long.toString(LogID), MSISDN, QuestionID, SuggestID, MyConfig
+				.Get_DateFormat_InsertDB().format(ReceiveDate), mPlayType.toString(), OrderNumber, UserAnswer, mStatus
+				.toString(), PID);
+	}
 }

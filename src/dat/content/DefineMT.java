@@ -198,6 +198,7 @@ public class DefineMT
 		 * thông báo về người chiến thằng
 		 */
 		NotifyWinner(601),
+		
 
 		/**
 		 * Tin tức hàng này
@@ -214,6 +215,10 @@ public class DefineMT
 		 */
 		NotifyRenewSuccessBeforeFail(604),
 		
+		/**
+		 * Thông báo chỉ gửi đến cho người chiến thắng
+		 */
+		NotifyOnlyWinner(605),
 		;
 		private int value;
 
