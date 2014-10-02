@@ -4,7 +4,7 @@ import java.util.Date;
 
 import uti.utility.MyConfig;
 import uti.utility.MyConfig.ChannelType;
-import uti.utility.MyConfig.VNPApplication;
+import uti.utility.VNPApplication;
 import dat.content.DefineMT;
 import dat.content.DefineMT.MTType;
 import db.define.MyDataRow;
@@ -27,7 +27,7 @@ public class MOObject
 	public Date ReceiveDate = null;
 	public Date SendDate = null;
 
-	public MyConfig.VNPApplication mVNPApp = VNPApplication.NoThing;
+	public VNPApplication mVNPApp = new VNPApplication();
 
 	public String UserName = "";
 	public String IP = "";
@@ -87,10 +87,10 @@ public class MOObject
 		mRow.SetValueCell("ReceiveDate", MyConfig.Get_DateFormat_InsertDB().format(ReceiveDate.getTime()));
 		mRow.SetValueCell("SendDate", MyConfig.Get_DateFormat_InsertDB().format(SendDate.getTime()));
 
-		if (mVNPApp != VNPApplication.NoThing)
+		if (!mVNPApp.IsNull())
 		{
-			mRow.SetValueCell("AppID", mVNPApp.GetValue());
-			mRow.SetValueCell("AppName", mVNPApp.toString());
+			mRow.SetValueCell("AppID", mVNPApp.AppID);
+			mRow.SetValueCell("AppName", mVNPApp.AppName);
 
 			mRow.SetValueCell("UserName", UserName);
 			mRow.SetValueCell("IP", IP);

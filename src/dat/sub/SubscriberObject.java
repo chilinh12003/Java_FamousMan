@@ -6,7 +6,7 @@ import java.util.Vector;
 
 import uti.utility.MyConfig;
 import uti.utility.MyConfig.ChannelType;
-import uti.utility.MyConfig.VNPApplication;
+import uti.utility.VNPApplication;
 import dat.history.Play;
 import dat.sub.Subscriber.Status;
 import db.define.MyDataRow;
@@ -92,7 +92,7 @@ public class SubscriberObject
 	public Integer OrderID = 0;
 
 	// các thông tin khi Vinaphone goi API
-	public VNPApplication mVNPApp = VNPApplication.NoThing;
+	public VNPApplication mVNPApp = new VNPApplication();
 	public String UserName = "";
 	public String IP = "";
 	public int PartnerID = 0;
@@ -387,7 +387,7 @@ public class SubscriberObject
 		mRow.SetValueCell("UserName", UserName);
 		mRow.SetValueCell("IP", IP);
 
-		if (mVNPApp != VNPApplication.NoThing)
+		if (!mVNPApp.IsNull())
 		{
 			mRow.SetValueCell("AppID", mVNPApp.GetValue());
 			mRow.SetValueCell("AppName", mVNPApp.toString());
