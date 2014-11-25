@@ -117,6 +117,37 @@ public class WapRegLog
 		}
 	}
 	
+	/**
+	 * 
+	 * @param Type
+	 * Type = 5:  Đếm số thuê bao (Para_1 = StatusID, Para_2=PartnerID, Para_3 = BeginDate, Para_4 = EndDate)
+	 * @param Para_1
+	 * @param Para_2
+	 * @param Para_3
+	 * @param Para_4
+	 * @return
+	 * @throws Exception
+	 * @throws SQLException
+	 */
+	public MyTableModel Select(int Type, String Para_1, String Para_2, String Para_3, String Para_4) throws Exception, SQLException
+	{
+		try
+		{
+			String Arr_Name[] ={"Type", "Para_1","Para_2","Para_3","Para_4"};
+			String Arr_Value[] ={Integer.toString(Type), Para_1,Para_2,Para_3,Para_4};
+			
+			return mGet.GetData_Pro("Sp_WapRegLog_Select", Arr_Name, Arr_Value);
+		}
+		catch(SQLException ex)
+		{
+			throw ex;
+		}
+		catch(Exception ex)
+		{
+			throw ex;
+		}
+	}
+	
 	public boolean Delete(int Type, String XMLContent) throws Exception
 	{
 		try

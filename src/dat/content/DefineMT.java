@@ -70,6 +70,10 @@ public class DefineMT
 		RegVASVoucherSuccessFree(210),
 		
 		RegVASVoucherSuccessNotFree(211),
+		
+		RegMOBILEADSSuccessFree(212),
+		
+		RegMOBILEADSSuccessNotFree(213),
 
 		// -----HỦY DỊCH VỤ
 		/**
